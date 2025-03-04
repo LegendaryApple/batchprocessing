@@ -8,3 +8,4 @@ admin username: admin
 password: password123
 
 Diagrams under resources/static
+swagger http://localhost:8080/swagger-ui/index.html
