@@ -2,6 +2,7 @@ package com.example.interview.controller;
 
 import com.example.interview.config.JwtTokenProvider;
 import com.example.interview.config.JwtUtil;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,6 +22,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @Tag(name="Login", description = "username is admin and password is password123")
     public String login(@RequestParam String username, @RequestParam String password) {
         Authentication auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(username, password)

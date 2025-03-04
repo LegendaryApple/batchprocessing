@@ -3,6 +3,7 @@ package com.example.interview.controller;
 import com.example.interview.entity.MyTransactions;
 import com.example.interview.params.TransactionUpdateParam;
 import com.example.interview.service.MyTransactionsService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,7 @@ public class MyTransactionsController {
 
     // ✅ Search transactions with pagination
     @GetMapping("/search")
+    @Tag(name = "Search Transaction", description = "To search transaction based on customer id, account number or description")
     public Page<MyTransactions> searchTransactions(
             @RequestParam(required = false) Long customerId,
             @RequestParam(required = false) String accountNumber,
@@ -32,6 +34,7 @@ public class MyTransactionsController {
 
     // ✅ Update a transaction by ID
     @PutMapping("/updateTransaction")
+    @Tag(name="Update Transaction", description = "To update transaction description.")
     public ResponseEntity<Boolean> updateTransaction(
             @RequestBody TransactionUpdateParam transactionUpdateParam) {
         try {
